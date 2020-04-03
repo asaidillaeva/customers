@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers List</title>
+</head>
+
+<body>
+<h2> Customers </h2>
+<div th:unless="${#lists.isEmpty(customers)}">
+    <dl th:each="customers : ${customers}">
+        <dt class="customersHeadLine">
+            <span th:text="${customers.first_name}">First Name</span>
+            <span th:text="${customers.last_name}">Last Name</span>
+            <span th:text="${customers.email_address}">Email</span>
+            <span th:text="${customers.job_title}">Job Title</span>
+            <span th:text="${customers.mobile_phone}">Mobile Phone</span>
+            <span th:text="${customers.city}">City</span>
+            <span th:text="${customers.web_page}">Web Page</span>
+        </dt>
+    </dl>
+</div>
+<div th:if="${#lists.isEmpty(customers)}">
+    <p> No customers </p><br>
+</div>
+<form th:action="@{/login}" method="post">
+    <input type="submit" value="Login to add Customers"/>
+</form>
+</body>
+</html>
