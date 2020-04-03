@@ -52,7 +52,6 @@ public class CustomersController implements WebMvcConfigurer {
         customersRepository.save(customer);
         return "redirect:/customers";
     }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String username, String password){
             return "redirect:/add";
