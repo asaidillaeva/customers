@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Customers List</title>
@@ -10,7 +11,7 @@
 <div th:unless="${#lists.isEmpty(customers)}">
     <dl th:each="customers : ${customers}">
         <dt class="customersHeadLine">
-            <span th:text="${customers.first_name}">First Name</span>
+            <span th:text="${customers.first_name}"></span>
             <span th:text="${customers.last_name}">Last Name</span>
             <span th:text="${customers.email_address}">Email</span>
             <span th:text="${customers.job_title}">Job Title</span>
