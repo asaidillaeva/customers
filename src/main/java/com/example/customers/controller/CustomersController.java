@@ -1,4 +1,4 @@
-package customers.controller;
+package com.example.customers.controller;
 
 
 import com.example.customers.model.Customers;

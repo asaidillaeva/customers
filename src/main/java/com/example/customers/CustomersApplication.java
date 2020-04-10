@@ -1,4 +1,4 @@
-package customers;
+package com.example.customers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class CustomersApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
-        SpringApplication.run(com.example.customers.CustomersApplication.class, args);
+        SpringApplication.run(CustomersApplication.class, args);
     }
 
     @Override

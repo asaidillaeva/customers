@@ -1,4 +1,4 @@
-package customers.security;
+package com.example.customers.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
