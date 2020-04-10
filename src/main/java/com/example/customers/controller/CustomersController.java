@@ -33,31 +33,36 @@ public class CustomersController implements WebMvcConfigurer {
         }
         return "customers";
     }
-    @RequestMapping(value = "/customers", method = RequestMethod.POST)
-    public String showCustomersPage(){
 
-        return "customers";
+    @RequestMapping(value = "/customers", method = RequestMethod.POST)
+    public String showCustomersPage() {
+
+        return "login";
     }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomePage(){
+    public String getHomePage() {
         return "index";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String showAddPage(){
+    public String showAddPage() {
         return "add";
     }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String submitCustomers(Customers customer) {
         customersRepository.save(customer);
         return "redirect:/customers";
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String username, String password){
-            return "redirect:/add";
+    public String login(String username, String password) {
+        return "add";
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginPage(){
+    public String showLoginPage() {
         return "/login";
     }
 }
