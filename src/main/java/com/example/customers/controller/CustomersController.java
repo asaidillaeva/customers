@@ -18,6 +18,7 @@ import java.util.List;
 public class CustomersController implements WebMvcConfigurer {
 
     private CustomersRepository customersRepository;
+    Model model;
 
     @Autowired
     public CustomersController(CustomersRepository customersRepository) {
@@ -27,6 +28,7 @@ public class CustomersController implements WebMvcConfigurer {
 
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
     public String customers(Model model) {
+        this.model = model;
         List<Customers> customersList = customersRepository.findAll();
         if (customersList != null) {
             model.addAttribute("customers", customersList);
@@ -34,16 +36,6 @@ public class CustomersController implements WebMvcConfigurer {
         return "customers";
     }
 
-    @RequestMapping(value = "/customers", method = RequestMethod.POST)
-    public String showCustomersPage() {
-
-        return "login";
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomePage() {
-        return "index";
-    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showAddPage() {
@@ -54,15 +46,5 @@ public class CustomersController implements WebMvcConfigurer {
     public String submitCustomers(Customers customer) {
         customersRepository.save(customer);
         return "redirect:/customers";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String username, String password) {
-        return "add";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginPage() {
-        return "/login";
     }
 }
